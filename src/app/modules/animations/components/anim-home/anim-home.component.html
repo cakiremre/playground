@@ -1,0 +1,16 @@
+<nav>
+  <ul class="list-unstyled list-inline">
+    <li class="list-inline-item hand" routerLink="/anim">Home</li>
+    <li class="list-inline-item hand" routerLink="/anim/page1">Page 1</li>
+    <li class="list-inline-item hand" routerLink="/anim/page2">Page 2</li>
+    <li class="list-inline-item hand" routerLink="/anim/page3">Page 3</li>
+  </ul>
+</nav>
+
+<button class="btn btn-primary" (click)="toggle()">Toggle Open/Close</button>
+<div
+  [@openClose]="isOpen ? 'open' : 'closed'"
+  class="open-close-container mt-5"
+>
+  <p>The box is now {{ isOpen ? "Open" : "Closed" }}!</p>
+</div>

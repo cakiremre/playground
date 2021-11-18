@@ -1,0 +1,45 @@
+<p>Http Interceptor / Check it over shared/util/auth-interceptor.ts</p>
+
+<form class="form mb-5 col-4">
+  <div class="form-group">
+    <select [(ngModel)]="account.role" name="role" class="form-control">
+      <option *ngFor="let role of roles" [ngValue]="role">
+        {{ role.toString() }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-check form-check-inline mt-2" *ngFor="let role of roles">
+    <input
+      class="form-check-input"
+      type="radio"
+      name="inlineRadioOptions"
+      [(ngModel)]="account.role"
+      [value]="role"
+    />
+    <label class="form-check-label">{{ role.toString() }}</label>
+  </div>
+
+  <div class="btn-group mt-2" role="group">
+    <span *ngFor="let role of roles">
+      <input
+        type="radio"
+        class="btn-check"
+        name="btnradio"
+        autocomplete="off"
+        [(ngModel)]="account.role"
+        [value]="role"
+      />
+      <label class="btn btn-outline-primary" for="btnradio1">{{
+        role.toString()
+      }}</label>
+    </span>
+  </div>
+</form>
+
+{{ account | json }}
+
+<ul class="list-unstyled mt-5">
+  <li><a routerLink="user">User</a></li>
+  <li><a routerLink="admin">Admin</a></li>
+</ul>

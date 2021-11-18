@@ -1,0 +1,55 @@
+<div>
+  <p>rxjs/operators/map:</p>
+  {{ map | async }}
+</div>
+
+<div class="mt-5">
+  <p>rxjs/operators/tap:</p>
+  {{ tap | async }}
+</div>
+
+<div class="mt-5">
+  <p>rxjs/operators/share:</p>
+  <small
+    ><span class="text-muted"
+      >Multiple observers shares same stream.</span
+    ></small
+  >
+  <span *ngIf="loading">
+    <fa-icon [icon]="faSpinner" *ngIf="loading"></fa-icon>
+  </span>
+</div>
+
+<div class="mt-5">
+  <p>rxjs/operators/switchMap:</p>
+  <small><span class="text-muted">Move to observe another stream.</span></small>
+  <button class="btn btn-success" (click)="run()">Run</button>
+</div>
+
+<div class="mt-5">
+  <p>rxjs/operators/debounce:</p>
+  <div class="mb-2">
+    <small
+      ><span class="text-muted"
+        >.pipe(debounceTime(2000), distinctUntilChanged())</span
+      ></small
+    >
+  </div>
+
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="onChange()"
+  />
+</div>
+
+<div>
+  <p>rxjs/operators/take:</p>
+  <button class="btn btn-primary" (click)="takeRun()">Take Run</button>
+</div>
+
+<div>
+  <p>rxjs/operators/forkJoin:</p>
+  <button class="btn btn-primary" (click)="forkJoin()">ForkJoin</button>
+</div>

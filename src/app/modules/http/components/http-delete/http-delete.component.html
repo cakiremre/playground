@@ -1,0 +1,9 @@
+<p>http-delete works!</p>
+
+<div *ngIf="deleteResponse | async as response">
+  <ul class="list-unstyled">
+    <li>Status: {{ response.status }}</li>
+    <li>Text: {{ response.statusText }}</li>
+    <li>{{ response | json }}</li>
+  </ul>
+</div>

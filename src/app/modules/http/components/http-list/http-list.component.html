@@ -1,0 +1,94 @@
+<div class="d-flex">
+  <ul
+    class="
+      list-unstyled list-inline
+      d-flex
+      flex-row
+      w-100
+      justify-content-around
+    "
+  >
+    <li class="list-item hand" (click)="selectTab(0)">
+      <span [ngClass]="{ strong: selected == 0 }">Angular Datatable</span>
+    </li>
+    <li class="list-item hand" (click)="selectTab(1)">
+      <span [ngClass]="{ strong: selected == 1 }">Prime Datatable</span>
+    </li>
+    <li class="list-item hand" (click)="selectTab(2)">
+      <span [ngClass]="{ strong: selected == 2 }">Ngx Datatable</span>
+    </li>
+    <li class="list-item hand" (click)="selectTab(3)">
+      <span [ngClass]="{ strong: selected == 3 }">Custom Datatable</span>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="selected == 0">
+  <table datatable class="row-border hover" *ngIf="todos.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Title</th>
+        <th>Completed?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todos">
+        <td>{{ todo.id }}</td>
+        <td>{{ todo.userId }}</td>
+        <td>{{ todo.title }}</td>
+        <td>{{ todo.completed }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="selected == 1">
+  <p-table [value]="todos" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Title</th>
+        <th>Completed?</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-todo>
+      <tr>
+        <td>{{ todo.id }}</td>
+        <td>{{ todo.userId }}</td>
+        <td>{{ todo.title }}</td>
+        <td>{{ todo.completed }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <!--{{ selectedTodos | json }}-->
+</div>
+
+<div *ngIf="selected == 2">
+  <ngx-datatable class="material striped" [rows]="todos" [columns]="columns">
+  </ngx-datatable>
+</div>
+
+<div *ngIf="selected == 3">
+  <table class="table table-striped row-border hover" *ngIf="todos.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Title</th>
+        <th>Completed?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todos">
+        <td>{{ todo.id }}</td>
+        <td>{{ todo.userId }}</td>
+        <td>{{ todo.title }}</td>
+        <td>{{ todo.completed }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
