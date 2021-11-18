@@ -38,11 +38,15 @@ export class FuncComponent implements OnInit {
     this.tap = source.pipe(
       tap((val) => {
         val = val.toUpperCase();
-        console.log(val); // this prints uppercase to console / lowercase to window
+        console.log("tap", val); // this prints uppercase to console / lowercase to window
       })
     );
 
-    this.map = source.pipe(map((val) => val.toUpperCase()));
+    this.map = source.pipe(map((val) => {
+      console.log("in map", val);
+      return val.toUpperCase();
+    }));
+
 
     const request = this.getPosts();
     this.setLoadingSpinner(request);

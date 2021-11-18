@@ -7,6 +7,8 @@ import { Post } from 'src/app/modules/http/models/post';
   styleUrls: ['./event-home.component.css'],
 })
 export class EventHomeComponent implements OnInit {
+  selected:number = 0;
+
   post: Post;
   constructor() {}
 
@@ -14,5 +16,6 @@ export class EventHomeComponent implements OnInit {
 
   onClick(post: Post) {
     this.post = post;
+    this.selected = 5;
   }
 }

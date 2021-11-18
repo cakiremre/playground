@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Person } from '../../model/person';
 
 @Component({
@@ -7,13 +7,16 @@ import { Person } from '../../model/person';
   styleUrls: ['./person-viewer.component.css'],
 })
 export class PersonViewerComponent implements OnInit {
-  person: Person = {
-    firstName: 'Emre',
-    lastName: 'Cakir',
-    age: 35,
-  };
+  @Input()
+  person: Person;
+
+  @Input()
+  people: Person[];
 
   constructor() {}
-
   ngOnInit(): void {}
+
+  personClicked(p: Person){
+    console.log("person clicked", p)
+  }
 }

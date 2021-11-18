@@ -19,6 +19,8 @@ export class RegisterComponent implements OnInit {
   faTwitter = faTwitter;
   faLinkedin = faLinkedin;
 
+
+
   registerRequest: RegisterRequest = new RegisterRequest();
 
   constructor() {}

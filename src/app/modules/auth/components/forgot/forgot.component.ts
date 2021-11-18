@@ -28,6 +28,8 @@ export class ForgotComponent implements OnInit {
       console.log('Valid form, submit', this.forgotForm.value);
       this.forgotRequest = this.forgotForm.value;
       console.log('Request: ', this.forgotRequest);
+
+      console.log(`Request email ${this.forgotRequest.username} den olusmaktadir.`);
     } else {
       console.log('Invalid form');
     }

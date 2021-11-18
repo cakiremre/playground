@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Post } from 'src/app/modules/http/models/post';
 
@@ -8,8 +8,12 @@ import { Post } from 'src/app/modules/http/models/post';
   styleUrls: ['./sub.component.css'],
 })
 export class SubComponent implements OnInit {
+
+  @Input()
+  selected: number;
+
   @Output()
-  action: EventEmitter<any> = new EventEmitter();
+  action: EventEmitter<Post> = new EventEmitter();
 
   post: Post = {
     id: 1,

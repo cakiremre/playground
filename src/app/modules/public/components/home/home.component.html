@@ -7,4 +7,7 @@
   <li><a routerLink="contact">Contact</a> Header/Footer/Menu Layout</li>
 </ul>
 
-<app-person-viewer></app-person-viewer>
+<app-person-viewer [person]="p1"></app-person-viewer>
+<app-person-viewer [person]="p2"></app-person-viewer>
+<app-person-viewer [people]="[p1, p2]"></app-person-viewer>
+
