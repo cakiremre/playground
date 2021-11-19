@@ -11,7 +11,7 @@ import { TodoService } from '../../services/todo.service';
 })
 export class HttpGetComponent implements OnInit, OnDestroy {
   todo: Todo;
-  subscriptions: Array<Subscription>;
+  subscriptions: Array<Subscription> = [];
   constructor(
     private activatedRoute: ActivatedRoute,
     private todoService: TodoService
