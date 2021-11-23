@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Todo } from '../../models/todo';
 import { TodoService } from '../../services/todo.service';
 
@@ -11,6 +11,8 @@ import { TodoService } from '../../services/todo.service';
 })
 export class HttpGetComponent implements OnInit, OnDestroy {
   todo: Todo;
+  todoObs: Observable<Todo>;
+
   subscriptions: Array<Subscription> = [];
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -22,10 +24,15 @@ export class HttpGetComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // TODO share() çalıştı mı?
     this.subscriptions.push(
       this.todoService
         .get(this.activatedRoute.snapshot.params.id)
         .subscribe((todo) => (this.todo = todo))
     );
+
+    this.todoService
+      .get(this.activatedRoute.snapshot.params.id)
+      .subscribe((t) => console.log(t));
   }
 }

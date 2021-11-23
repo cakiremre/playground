@@ -20,7 +20,7 @@ const routes: Routes = [
         component: UserComponent,
         canActivate: [AuthGuard],
         data: {
-          expected: Role.ROLE_USER,
+          ex: Role.ROLE_USER,
         },
       },
       {
@@ -28,7 +28,7 @@ const routes: Routes = [
         component: AdminComponent,
         canActivate: [AuthGuard],
         data: {
-          expected: Role.ROLE_ADMIN,
+          ex: Role.ROLE_ADMIN,
         },
       },
     ],

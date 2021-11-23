@@ -22,7 +22,7 @@ export class AuthGuardService implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    const authorized = this.accountService.hasRole(route.data.expected);
+    const authorized = this.accountService.hasRole(route.data.ex);
     if (authorized) {
       return true;
     } else {

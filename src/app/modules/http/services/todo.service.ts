@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { share } from 'rxjs/operators';
 import { Todo } from '../models/todo';
 
 @Injectable({
@@ -20,6 +21,6 @@ export class TodoService {
   }
 
   get(id: number): Observable<Todo> {
-    return this.httpClient.get<Todo>(this.TODO_URL.by_id(id));
+    return this.httpClient.get<Todo>(this.TODO_URL.by_id(id)).pipe(share());
   }
 }

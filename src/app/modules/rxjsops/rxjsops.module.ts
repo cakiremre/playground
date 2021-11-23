@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { SubjComponent } from './components/subj/subj.component';
 import { FuncComponent } from './components/func/func.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ErrorComponent } from './components/error/error.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ObsComponent,
     SubjComponent,
     FuncComponent,
+    ErrorComponent,
   ],
-  imports: [CommonModule, RxjsopsRoutingModule, FormsModule, FontAwesomeModule],
+  imports: [
+    CommonModule,
+    RxjsopsRoutingModule,
+    FormsModule,
+    FontAwesomeModule,
+    HttpClientModule,
+  ],
 })
 export class RxjsopsModule {}

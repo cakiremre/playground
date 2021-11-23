@@ -7,6 +7,7 @@ import { TypeaheadComponent } from './components/typeahead/typeahead.component';
 import { ObsComponent } from './components/obs/obs.component';
 import { SubjComponent } from './components/subj/subj.component';
 import { FuncComponent } from './components/func/func.component';
+import { ErrorComponent } from './components/error/error.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: 'mttp', component: FuncComponent },
       { path: 'subject', component: SubjComponent },
       { path: 'typeahead', component: TypeaheadComponent },
+      { path: 'error', component: ErrorComponent },
     ],
   },
 ];

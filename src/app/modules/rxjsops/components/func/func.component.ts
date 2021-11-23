@@ -13,6 +13,7 @@ import {
 import { Post } from 'src/app/modules/http/models/post';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { Comment } from '../../models/comment';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-func',
@@ -38,15 +39,16 @@ export class FuncComponent implements OnInit {
     this.tap = source.pipe(
       tap((val) => {
         val = val.toUpperCase();
-        console.log("tap", val); // this prints uppercase to console / lowercase to window
+        console.log('tap', val); // this prints uppercase to console / lowercase to window
       })
     );
 
-    this.map = source.pipe(map((val) => {
-      console.log("in map", val);
-      return val.toUpperCase();
-    }));
-
+    this.map = source.pipe(
+      map((val) => {
+        console.log('in map', val);
+        return val.toUpperCase();
+      })
+    );
 
     const request = this.getPosts();
     this.setLoadingSpinner(request);
@@ -103,9 +105,15 @@ export class FuncComponent implements OnInit {
   }
 
   forkJoin() {
-    forkJoin([this.getPosts(), this.getComments()]).subscribe((data) => {
-      console.log('post count: ', data[0].length);
-      console.log('comment count: ', data[1].length);
-    });
+    let subs = forkJoin([this.getPosts(), this.getComments()]).subscribe(
+      (data) => {
+        console.log('post count: ', data[0].length);
+        console.log('comment count: ', data[1].length);
+        let posts: Post[] = data[0];
+        let indx = _.findIndex(posts, { id: 12 });
+        console.log('index: ' + indx);
+      }
+    );
+    console.log('subscription', subs);
   }
 }
