@@ -22,6 +22,9 @@ import { AnimModule } from './modules/animations/anim.module';
 import { AuthInterceptor } from './shared/util/auth-interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import { EntityDataModule } from '@ngrx/data';
+import { DataModule } from './modules/data/data.module';
+import { entityConfig } from './modules/data/models/entity-metadata';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -48,6 +51,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EventModule,
     SecModule,
     I18nModule,
+    DataModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
